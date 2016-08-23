@@ -1,0 +1,19 @@
+language: java
+compiler:
+  - mvn
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "RuMuz5oJQVd1r3zF1fEBQBa48YXovcqt2QFR0ABDvtegZuvqnla0Qi7DEZsHr4JstNnTqpE+S+6YVWLpv+KSfs5VQ2E1e7r3n8qUhPcrOzwzedJSC0DuW/eisHxURyw5P6j3ledK9hk2mHCU/ZbnosLZdI+8GHTCupN2STH9++Sn3UgNmZohqNpYBjVlwTRewa+nLH57VVejk4AO/ZZiWueGj8eAzlt3pjcS+i+0ATAUXkiXWJL5RcfjCO2aI8Ab5nQNMx17abEPfhqU8gYoUQHzJyTd+i98fIlIH0y4duPKAItXGuCiQUSydY1eVWNM0B2EVdmClMrrSJEWgcj4tAlZF6BrfxrorheoH65fA739X4WuY62CHw6sqL7spvm/3y/QYicGFhIduiDJp6EArDm15CjyCTGB8e1gG1jih67jfkyylk4MPPBGkc3QWEXnTBodABQOJpbGSQAI4+p72f4VSPO+VmidJ0XqJqSU1zgy47znvpMg0BgiRhfPkuF1T0r06cPP2Wf/yM8gHvQvLNMhUaNy6fDChRdXGHiWjRPCnCRK7TyCpOQZN3/hkUZ45l+XsGP6K+qUOyCnqwd6aEDhQJIuli0f0nermf4BOCf91HjEPrHiPWDljaSCV0qe9VTJCqiLKiXAjuYB/5VZEuAIVkqgCO+U/Id6zkJMB/s="
+
+addons:
+  coverity_scan:
+    project:
+      name: "Robotsalesmen/lucene-solr"
+      description: "Build submitted via Travis CI"
+    notification_email: charles@cwse.net
+    build_command_prepend: "mvn clean"
+    build_command:   "mvn -DskipTests=true compile"
+    branch_pattern: coverity_scan
